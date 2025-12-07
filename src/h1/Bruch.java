@@ -17,7 +17,7 @@ public class Bruch {
         int b = y;
 
         if(a == 0){
-            return 0;
+            return b;
         }
         if(b == 0){
             return 0;
