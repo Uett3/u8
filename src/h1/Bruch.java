@@ -1,0 +1,90 @@
+package h1;
+
+public class Bruch {
+    public int zaehler;
+    public int nenner;
+
+    public Bruch(int zaehler, int nenner){
+        this.zaehler = zaehler;
+        this.nenner = nenner;
+
+    }
+
+
+
+    private int ggT(int x, int y){
+        int a = x;
+        int b = y;
+
+        if(a == 0){
+            return 0;
+        }
+        if(b == 0){
+            return 0;
+        }
+
+
+        if(a == 1){
+            return 1;
+        }
+        if(b == 1){
+            return 1;
+        }
+
+        int[] teilerA = new int[a];
+        int counterA = 0;
+
+        for (int i = 1; i < a + 1; i++){
+
+            if(a%i == 0){
+                teilerA[counterA] = i;
+                counterA++;
+                //System.out.println(i);
+            }
+        }
+
+        int[] teilerB = new int[b];
+        int counterB = 0;
+
+        for (int i = 1; i < b + 1; i++){
+
+            if(b%i == 0){
+                teilerB[counterB] = i;
+                counterB++;
+                //System.out.println(i);
+            }
+        }
+       // System.out.println("Counter a ist " + counterA);
+        for (int i = counterA-1; i > 0; i --){
+            //System.out.println(i);
+            for (int j = counterB-1; j > 0; j --){
+                if (teilerA[i] == teilerB[j]){
+                    //System.out.println("teiler ist" + teilerA[i]);
+                    return teilerA[i];
+                }
+
+            }
+
+        }
+        return 1;
+    }
+
+    public void shorten(){
+
+        int ggt = ggT(zaehler,nenner);
+        zaehler = zaehler / ggt;
+        nenner = nenner / ggt;
+    }
+
+    public boolean hasSameValueAs(Bruch b){
+        shorten();
+        b.shorten();
+
+        if(zaehler == b.zaehler && nenner == b.nenner){
+            return true;
+        }
+        return false;
+
+
+    }
+}
