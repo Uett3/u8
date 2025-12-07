@@ -13,6 +13,24 @@ public class Bruch {
 
 
     private int ggT(int x, int y){
+
+
+        boolean negBruch = false;
+        if (x < 0){
+            x = x * -1;
+            y = y * -1;
+
+
+        }
+        if (y < 0){
+            y = y * -1;
+            negBruch = true;
+
+
+        }
+
+        // Ist halt so die Frage was passieren soll, wenn der Bruch Negativ ist???
+
         int a = x;
         int b = y;
 
