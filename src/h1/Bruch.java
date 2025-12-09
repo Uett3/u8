@@ -92,6 +92,11 @@ public class Bruch {
         int ggt = ggT(zaehler,nenner);
         zaehler = zaehler / ggt;
         nenner = nenner / ggt;
+
+        if(zaehler < 0 && nenner < 0){
+            zaehler *= -1;
+            nenner *= -1;
+        }
     }
 
     public boolean hasSameValueAs(Bruch b){
