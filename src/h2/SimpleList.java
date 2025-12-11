@@ -19,7 +19,13 @@ public class SimpleList {
 
     public Node getLast(){
 
+        System.out.println("1aa");
+        if(head.next == null){
+            return null;
 
+
+        }
+        System.out.println("aa");
 
         Node activeNode;
         activeNode = head;
@@ -38,7 +44,14 @@ public class SimpleList {
 
     public void append(int newValue) {
         Node lastNode;
-        lastNode = getLast();
+
+        if(getLast() == null){
+            lastNode = head;
+        } else {
+            lastNode = getLast();
+        }
+
+
 
         Node newNode = new Node(newValue);
 
@@ -96,16 +109,30 @@ public class SimpleList {
 
         Node newNode = new Node(newValue);
 
+        newNode.next = preNode.next;
         preNode.next = newNode;
+
 
         return true;
     }
 
     public boolean delete(int value){
 
-        if(findVORFirst(value) == null){
+
+        //Head!!!!! nicht löschen
+        if(findFirst(value) == null){
             return false;
         }
+
+        if(value == Integer.MIN_VALUE){
+            return false;
+        }
+
+
+
+
+
+
 
         Node preNode;
         preNode = findVORFirst(value);
@@ -113,4 +140,29 @@ public class SimpleList {
 
         return true;
     }
+
+
+
+
+    public void printAll() {
+        Node current = head.next; // ersten echten Knoten überspringen
+
+        if (current == null) {
+            System.out.println("Liste ist leer.");
+            return;
+        }
+
+        while (current != null) {
+            System.out.print(current.value);
+            if (current.next != null) {
+                System.out.print(", ");
+            }
+            current = current.next;
+        }
+
+        System.out.println(); // Zeilenumbruch am Ende
+    }
+
+
+
 }

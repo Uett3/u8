@@ -24,7 +24,6 @@ public class Bruch {
         }
         if (y < 0){
             y = y * -1;
-            negBruch = true;
 
 
         }
@@ -38,7 +37,7 @@ public class Bruch {
             return b;
         }
         if(b == 0){
-            return 0;
+            return a;
         }
 
 
@@ -88,6 +87,13 @@ public class Bruch {
     }
 
     public void shorten(){
+
+        if (nenner == 0){
+            zaehler = 1;
+            nenner = 0;
+            return;
+
+        }
 
         int ggt = ggT(zaehler,nenner);
         zaehler = zaehler / ggt;
