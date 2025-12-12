@@ -15,7 +15,7 @@ public class Bruch {
     private int ggT(int x, int y){
 
 
-        boolean negBruch = false;
+
         if (x < 0){
             x = x * -1;
             y = y * -1;
@@ -28,7 +28,7 @@ public class Bruch {
 
         }
 
-        // Ist halt so die Frage was passieren soll, wenn der Bruch Negativ ist???
+
 
         int a = x;
         int b = y;
@@ -106,10 +106,13 @@ public class Bruch {
     }
 
     public boolean hasSameValueAs(Bruch b){
-        shorten();
-        b.shorten();
+        Bruch og = new Bruch(zaehler,nenner);
+        og.shorten();
 
-        if(zaehler == b.zaehler && nenner == b.nenner){
+        Bruch überprüfen = new Bruch(b.zaehler,b.nenner);
+        überprüfen.shorten();
+
+        if(og.zaehler == überprüfen.zaehler && og.nenner == überprüfen.nenner){
             return true;
         }
         return false;

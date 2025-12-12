@@ -5,9 +5,6 @@ public class SimpleList {
 
     public SimpleList(){
 
-
-
-
         head = new Node(Integer.MIN_VALUE);
         head.next = null;
 
@@ -19,13 +16,11 @@ public class SimpleList {
 
     public Node getLast(){
 
-        System.out.println("1aa");
         if(head.next == null){
             return null;
 
 
         }
-        System.out.println("aa");
 
         Node activeNode;
         activeNode = head;
@@ -38,8 +33,6 @@ public class SimpleList {
             activeNode = activeNode.next;
         }
 
-
-        //return null;
     }
 
     public void append(int newValue) {
@@ -79,7 +72,7 @@ public class SimpleList {
         }
     }
 
-    public Node findVORFirst(int value){
+    private Node findVORFirst(int value){
 
         int vaaalue;
         vaaalue = value;
@@ -143,7 +136,7 @@ public class SimpleList {
 
 
 
-
+/*
     public void printAll() {
         Node current = head.next; // ersten echten Knoten überspringen
 
@@ -162,6 +155,9 @@ public class SimpleList {
 
         System.out.println(); // Zeilenumbruch am Ende
     }
+
+ */
+
 
 
 
